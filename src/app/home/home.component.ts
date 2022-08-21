@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 import { GetTemplateService } from '../get-template.service';
 
 @Component({
@@ -7,10 +8,11 @@ import { GetTemplateService } from '../get-template.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  constructor(private getTemp: GetTemplateService) {}
+  constructor(private getTemp: GetTemplateService, private data: DataService) {}
   editable: any = '';
   form: any;
   selected: any = '3';
+  image: any;
   ngOnInit(): void {
     this.getTemp.getTemplates().subscribe(
       (res) => {
@@ -18,6 +20,14 @@ export class HomeComponent implements OnInit {
       },
       (err) => {}
     );
+
+    this.getImage();
+  }
+  getImage() {
+    this.data.getImage().subscribe((res: any) => {
+      this.image = res;
+      console.log(res);
+    });
   }
   clickedEdit(item: any) {
     this.editable = item;
