@@ -32,7 +32,7 @@
     "joi": "^17.6.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.2",
-    "ngx-toastr": "^13.2.1",
+    "ngx-toastr": "16.0",
     "nodemon": "^2.0.19",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
