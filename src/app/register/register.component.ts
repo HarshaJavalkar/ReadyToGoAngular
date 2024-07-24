@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CredentialManagerService } from '../credential-manager.service';
@@ -13,7 +13,7 @@ export class RegisterComponent {
   status = 'data';
 
   public types = ['User', 'Admin'];
-  myForm: FormGroup;
+  myForm: UntypedFormGroup;
   lists = ['User', 'Admin'];
   products = [''];
   validity: boolean = false;
@@ -21,7 +21,7 @@ export class RegisterComponent {
     private us: CredentialManagerService,
     private router: Router,
     private toastr: ToastrService,
-    private formBuilder: FormBuilder
+    private formBuilder: UntypedFormBuilder
   ) {
     this.myForm = this.formBuilder.group({
       user: [null, Validators.required],

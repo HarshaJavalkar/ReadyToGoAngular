@@ -100,8 +100,9 @@
       }
     }
   },
-  "defaultProject": "temp_gen",
   "cli": {
-    "defaultCollection": "@angular-eslint/schematics"
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }

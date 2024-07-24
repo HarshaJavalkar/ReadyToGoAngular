@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CredentialManagerService } from '../credential-manager.service';
 
@@ -24,13 +24,13 @@ export class LoginComponent implements OnInit {
   loginStatus: boolean = sessionStorage.getItem('username') ? true : false;
 
   ngOnInit(): void {
-    this.form = new FormGroup({
-      username: new FormControl('', [
+    this.form = new UntypedFormGroup({
+      username: new UntypedFormControl('', [
         Validators.required,
         Validators.minLength(3),
       ]),
 
-      password: new FormControl('', [
+      password: new UntypedFormControl('', [
         Validators.required,
         Validators.minLength(3),
       ]),
